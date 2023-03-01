@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Componente Bottom Sheet con TailwindCSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+  </head>
+  <body class="bg-gray-100 relative h-[1200px] dark:bg-slate-900">
+    <h1 class="text-3xl font-bold p-4 dark:text-white">
+      Componente Bottom Sheet con TailwindCSS
+    </h1>
+    <!-- Light - Dark Buttons -->
+    <div class="flex gap-2 p-4">
+      <button
+        id="btn-light"
+        class="rounded-xl bg-slate-50 hover:bg-white ring-1 ring-slate-900/10 px-2 py-2 w-32 text-xs font-bold dark:bg-slate-700 dark:hover:bg-slate-600 dark:text-white"
+      >
+        Light
+      </button>
+      <button
+        id="btn-dark"
+        class="rounded-xl bg-slate-50 hover:bg-white ring-1 ring-slate-900/10 px-2 py-2 w-32 text-xs font-bold dark:bg-slate-700 dark:hover:bg-slate-600 dark:text-white"
+      >
+        Dark
+      </button>
+    </div>
+    <!-- / Light - Dark Buttons-->
+
+    <!-- Bottom Sheet Container -->
+    <div id="container" class="h-full w-full fixed top-0 left-0 z-10 invisible">
+      <!-- Bottom Sheet -->
+      <div
+        id="bottom-sheet"
+        class="bg-white w-full fixed bottom-0 rounded-t rounded-t-xl transition-transform translate-y-full delay-75 dark:bg-slate-800 dark:ring-1"
+      >
+        <div class="flex flex-row justify-between items-center w-full p-4">
+          <div class="text-xl font-bold dark:text-white">Resumen de cita</div>
+          <button id="btn-close" class="appearance-none">
+            <img src="images/cross.svg" class="w-6 dark:invert" alt="" />
+          </button>
+        </div>
+        <!-- Summary -->
+        <div class="p-4">
+          <ul class="list-none divide-y dark:text-white dark:divide-slate-700">
+            <li class="flex items-start py-2">
+              <img src="images/calendar.svg" class="w-6 dark:invert" alt="" />
+
+              <div class="ml-4 flex-1">
+                <p><strong>Fecha de cita</strong></p>
+                <p>10, Marzo 2023</p>
+              </div>
+            </li>
+            <li class="flex items-start py-2">
+              <img src="images/clock.svg" class="w-6 dark:invert" alt="" />
+              <div class="ml-4 flex-1">
+                <p><strong>Hora de cita</strong></p>
+                <p>10:00 a.m.</p>
+              </div>
+            </li>
+            <li class="flex items-start py-2">
+              <img src="images/document.svg" class="w-6 dark:invert" alt="" />
+              <div class="ml-4 flex-1">
+                <p><strong>Especialidad</strong></p>
+                <p>Medicina General</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- / Summary -->
+
+        <div class="p-4">
+          <button
+            class="bg-purple-600 text-white p-4 w-full rounded-xl font-semibold shadow-sm hover:bg-purple-500"
+          >
+            Reservar
+          </button>
+        </div>
+      </div>
+      <!-- / Bottom Sheet-->
+    </div>
+    <!-- Bottom Sheet Container -->
+
+    <!-- Fixed Button -->
+    <div
+      class="bg-white fixed bottom-0 w-full p-4 border-t-[1px] border-solid dark:bg-slate-800 dark:border-slate-600"
+    >
+      <button
+        id="btn-open"
+        class="bg-slate-900 text-white p-4 w-full rounded-xl font-semibold shadow-sm hover:bg-slate-700 dark:bg-indigo-600 dark:hover:bg-indigo-500"
+      >
+        Ver resumen
+      </button>
+    </div>
+    <!-- Fixed Button -->
+    <script src="script.js"></script>
+  </body>
+</html>
